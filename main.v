@@ -40,6 +40,15 @@ module main (
   wire [19:0] score;
   wire [19:0] high_score;
 
+  parameter [9:0] SCREEN_WIDTH_PIXELS = 640;
+  parameter [9:0] SCREEN_HEIGHT_PIXELS = 480;
+
+  // TODO: Decidir tamanho
+  parameter [9:0] BLOCK_SIZE = 10;
+
+  parameter [9:0] SCREEN_WIDTH = SCREEN_WIDTH_PIXELS / BLOCK_SIZE;
+  parameter [9:0] SCREEN_HEIGHT = SCREEN_HEIGHT_PIXELS / BLOCK_SIZE;
+
 vga out (
   .CLOCK_50(CLOCK_50),
   .reset(reset),
