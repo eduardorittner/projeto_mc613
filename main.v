@@ -49,24 +49,41 @@ module main (
   parameter [9:0] SCREEN_WIDTH = SCREEN_WIDTH_PIXELS / BLOCK_SIZE;
   parameter [9:0] SCREEN_HEIGHT = SCREEN_HEIGHT_PIXELS / BLOCK_SIZE;
 
-vga out (
-  .CLOCK_50(CLOCK_50),
-  .reset(reset),
-  .R(R),
-  .G(G),
-  .B(B),
-  .VGA_CLK(VGA_CLK),
-  .VGA_G(VGA_G),
-  .VGA_R(VGA_R),
-  .VGA_B(VGA_B),
-  .VGA_SYNC_N(VGA_SYNC_N),
-  .VGA_BLANK_N(VGA_BLANK_N),
-  .VGA_HS(VGA_HS),
-  .VGA_VS(VGA_VS),
-  .x(x),
-  .y(y)
-);
+  // Display vga
+  vga out (
+    .CLOCK_50(CLOCK_50),
+    .reset(reset),
+    .R(R),
+    .G(G),
+    .B(B),
+    .VGA_CLK(VGA_CLK),
+    .VGA_G(VGA_G),
+    .VGA_R(VGA_R),
+    .VGA_B(VGA_B),
+    .VGA_SYNC_N(VGA_SYNC_N),
+    .VGA_BLANK_N(VGA_BLANK_N),
+    .VGA_HS(VGA_HS),
+    .VGA_VS(VGA_VS),
+    .x(x),
+    .y(y)
+  );
 
+  // RAM do mapa
+  mapa mapa (
+    .cobra_clk(),
+    .cobra_write(),
+    .cobra_dado(),
+    .cobra_x(),
+    .cobra_y(),
+
+    .fruta_clk(),
+    .fruta_write(),
+    .fruta_dado(),
+    .fruta_x(),
+    .fruta_y()
+  );
+
+  // Display da pontuação
   bin2display display (
     .pontuacao(score),
     .high_score(high_score),

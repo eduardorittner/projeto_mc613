@@ -9,7 +9,7 @@ module mapa (
   input fruta_write,
   input fruta_dado,
   input [9:0] fruta_x,
-  input [9:0] fruta_y,
+  input [9:0] fruta_y
 );
 
   parameter [1:0] NADA = 0;
