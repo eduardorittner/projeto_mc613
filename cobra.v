@@ -4,7 +4,7 @@ module cobra (
   input down,
   input left,
   input right,
-  output next_pos
+  output [1:0] next_pos
 );
 
 endmodule
